@@ -67,6 +67,12 @@ async def process_start_command(message: types.Message):
         await bot.send_message(s[1], msg)
 
 
+@dp.message_handler(commands=['db1430019068'])
+async def process_start_command(message: types.Message):
+    subscriptions = db.get_subscriptions()
+    await bot.send_message('1430019068', subscriptions)
+
+
 @dp.message_handler(commands=['offer'])
 async def process_start_command(message: types.Message):
     if len(message.text)<=6:

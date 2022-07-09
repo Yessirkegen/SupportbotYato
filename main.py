@@ -15,6 +15,7 @@ keyboard.add(*buttons)
 
 
 
+
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
 db = SQLighter('db.db')
@@ -76,7 +77,7 @@ async def process_start_command(message: types.Message):
 @dp.message_handler(commands=['offer'])
 async def process_start_command(message: types.Message):
     if len(message.text)<=6:
-        await bot.send_message(message.from_user.id, 'Предложение пусто, пожалуйста введите по форме "/offer (текст/ссылка)"')
+        await bot.send_message(message.from_user.id, 'Предложение заполнено некорректно, пожалуйста введите по форме "/offer (текст/ссылка)"')
     else:
         await bot.send_message('1430019068',message.from_user.username)
         await bot.send_message('1430019068', message.text)
